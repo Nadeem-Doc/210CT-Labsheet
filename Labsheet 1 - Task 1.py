@@ -11,13 +11,12 @@ f = int(input ("first: "))
 d = int(input ("first: "))
 
 listOfInput = [x,y,t,f,d]
-for i in range(len(listOfInput)):
-    randomNumber1 = random.randrange(0,4)
-    randomNumber2 = random.randrange(0,4)
-    listOfInput[randomNumber1], listOfInput[randomNumber2] = listOfInput[randomNumber2], listOfInput[randomNumber1]
 
-print(listOfInput)
+def ListShuffler(listOfInput):
+    for i in range(len(listOfInput)):
+        randomNumber1 = random.randrange(0,4)
+        randomNumber2 = random.randrange(0,4)
+        listOfInput[randomNumber1], listOfInput[randomNumber2] = listOfInput[randomNumber2], listOfInput[randomNumber1]
+    return listOfInput
 
-
-
-
+print(ListShuffler(listOfInput))
