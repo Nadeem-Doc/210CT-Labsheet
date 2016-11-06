@@ -1,28 +1,18 @@
+
 """
-
-    pseudo code
-PERFECT_SQAURE_FINDEER (num)
-    i<- 0
-    while i*i< num
-       i<- i+1
-    if i*i > num
-       i<- i-1
-
-    retun i
+Takes an input which is used as a max range. ‘root’ is then used as a count
+which is continuously increased until its product is greater than the
+input (number). The if statement then checks if the result of the ‘root’ is greater than the ‘number’ 
+if so, ‘root’ is deducted by one. In any case ‘root’ is returned.
 """
-
+def perfectSqaureFinder (number):
+    root = 0
+    while (root*root)< number:
+        root+=1
+    if (root*root) > number:
+        root-=1    
+    return root
 
 number = int(input("Enter number: " ))
 
-
-def perfectSqaureFinder (number):
-    i = 0
-    while (i*i)< number:
-        i+=1
-    if (i*i) > number:
-        i-=1    
-    return i
-
-
 print(perfectSqaureFinder(number))
-        
