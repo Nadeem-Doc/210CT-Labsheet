@@ -1,4 +1,4 @@
-import random
+from random import randrange
 
 No1 = int(input ("First Number: "))
 No2 = int(input ("Second Number: "))
@@ -14,10 +14,9 @@ returns the random list
 """
 def ListShuffler(listOfInput):
     for number in range(len(listOfInput)):
-        randomNumber1 = random.randrange(0,4)
-        randomNumber2 = random.randrange(0,4)
+        randomNumber1 = randrange(0,4)
+        randomNumber2 = randrange(0,4)
         listOfInput[randomNumber1], listOfInput[randomNumber2] = listOfInput[randomNumber2], listOfInput[randomNumber1]
     return listOfInput
-
 
 print(ListShuffler(listOfInput))
