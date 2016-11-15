@@ -1,36 +1,23 @@
-sequence = [1,2,3,2,6,1,5,7,8,19,]
+#alist = [1,2,3,2,6,2,3,1,5,7,8,19] #len = 12
+alist=[21,32,14,12,23,4,1,2,3,4,5,6,7,854,23,44,5,4,3,2,1,2,3,13,45]
 
-def submax(sequence):
-    head = 0
-    for i in range(len(sequence)):
-        if i+1 == len(sequence):
-             sequence[head:i]
-        elif sequence[i] < sequence[i-1]:
-             sequence[head:i]
-             head = i 
- 
+def subExtract(sequence):
+    nextList=[] #new list to be compared
+    head = 0 #start of splice
 
+    for count in range(len(sequence)-1):
+        if sequence[count] > sequence[count+1]:
+            
+            if len(sequence[head:count+1])> len(nextList):
+                nextList = sequence[head:count+1]
+                head=count+1
+            else:
+                head=count+1
 
-def subMax2(sequence):
-    tempList = []
-    for i in range(len(sequence)):
-        if sequence[i] < sequence[i-1]:
-            tempList.append(sequence[i])
-            elseif 
+        elif count==len(sequence)-2:
+            if len(sequence[head:len(sequence)+1])> len(nextList):
+               nextList = sequence[head:len(sequence)+1]
 
-    return(tempList)
-        
-print(subMax2(sequence))
+    return nextList
 
-
-
-
-"""
-if the number is larfer than the previous then add to tempList which is then
-used to compare the length of the sublistsuntil the lenght of
-the list is reached
-
-"""
-
-
-
+print(subExtract(alist))
