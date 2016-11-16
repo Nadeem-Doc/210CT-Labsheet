@@ -1,5 +1,4 @@
-#alist = [1,2,3,2,6,2,3,1,5,7,8,19] #len = 12
-alist=[21,32,14,12,23,4,1,2,3,4,5,6,7,854,23,44,5,4,3,2,1,2,3,13,45]
+alist=[21,32,14,12,23,4,54,23,44,5,4,3,2,1,2,3,13,45]
 
 def subExtract(sequence):
     nextList=[] #new list to be compared
@@ -20,4 +19,4 @@ def subExtract(sequence):
 
     return nextList
 
-print(subExtract(alist))
+print(subExtract(alist)
