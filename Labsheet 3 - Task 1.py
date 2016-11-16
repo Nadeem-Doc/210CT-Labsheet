@@ -15,8 +15,6 @@ gets removed.
 This is done until pos reaches 0 which returns new list 
 """
 def reverse(pos, sentence):
-    # NEED TO KNOW HOW OTHER LANGUAGES USE SWAP
-    # USING TEMP LISTS
     if pos == 0:
         return sentence
     sentence.append( sentence[pos-1] )
