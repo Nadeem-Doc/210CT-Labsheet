@@ -5,17 +5,17 @@ then the number is a prime. if at any stage the prime number to be checked is
 divisible by ‘n’ then 'prime' isn’t a prime number.
 """
 
-def _primeCheck (prime, n):
+def primeCheck2 (prime, n):
     if n == 1:
         return True
     elif prime%n == 0:
         return False
     else:
-        return _primeCheck(prime, n-1)
+        return primeCheck2(prime, n-1)
 
 def primeCheck( prime ): #initialises the parameters for  _primeCheck 
-    return _primeCheck( prime, prime -1 )# what is the _ used for?
+    return primeCheck2( prime, prime -1 )
 
-prime = 21
+prime = 29
 #prime is set to takeaway 1 to that the elif statment isnt triggered 
 print( primeCheck(prime))
