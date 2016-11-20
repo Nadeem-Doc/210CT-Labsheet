@@ -13,7 +13,7 @@ def primeCheck2 (prime, n):
     else:
         return primeCheck2(prime, n-1)
 
-def primeCheck( prime ): #initialises the parameters for  _primeCheck 
+def primeCheck( prime ): #initialises the parameters for  primeCheck 
     return primeCheck2( prime, prime -1 )
 
 prime = 29
