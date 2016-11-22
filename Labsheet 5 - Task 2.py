@@ -1,8 +1,8 @@
 class Node():
       def __init__(self, value):
           self.value=value
-          self.next=None
-          self.prev=None
+          self.next=None # node pointing to next
+          self.prev=None # node pointing to prev
 
 class List():
       def __init__(self):
@@ -11,16 +11,16 @@ class List():
       def insert(self,n,x):
           #Not actually perfect: how do we prepend to an existing list?
           if n!=None:
-              x.next=n.next
-              n.next=x
-              x.prev=n
-              if x.next!=None:
-                  x.next.prev=x              
-          if self.head==None:
-              self.head=self.tail=x
-              x.prev=x.next=None
-          elif self.tail==n:
-              self.tail=x
+              x.next = n.next
+              n.next = x
+              x.prev = n  
+              if x.next != None:
+                  x.next.prev = x              
+          if self.head == None:
+              self.head = self.tail = x #assigns the value of x to the head and tail
+              x.prev = x.next = None
+          elif self.tail == n:
+              self.tail = x #reassigns the tail to the current node
 
       def display(self):
           values=[]
@@ -30,21 +30,27 @@ class List():
               n=n.next
           print ("List: ", ",".join(values))
 
-      def delNode (self,node):
-            found = False
-            n=self.head
-            while not found:
-                  if node == n:
-                        found = True
-                        return found
-                  else:
-                        n=n.next
-          
+      def lisrem(self,n):
+            if n.prev != None:
+                 n.prev.next = n.next
+            else:
+                  l.head = n.next
+            if n.next != None:
+                  n.next.prev = n.prev
+            else:
+                  l.tail = n.prev
           
 if __name__ == '__main__':
       l=List()
-      l.insert(None, Node(4))
-      l.insert(l.head,Node(6))
-      l.insert(l.head,Node(8))
+      n = Node(6)
+      n1 = Node(2)
+      n2 = Node(3)
+      n3 = Node(4)
+
+
+      l.insert(None, n)
+      l.insert(l.head,n1)
+      l.insert(l.head,n2)
+      l.insert(l.head,n3)
+      l.lisrem(n)
       l.display()
-      l.delNode(4)
