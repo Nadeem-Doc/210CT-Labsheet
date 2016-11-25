@@ -38,11 +38,28 @@ def in_order(tree):
     print (tree.value)
     if(tree.right!=None):
         in_order(tree.right)
-"""
+
 def in_order2(tree):
-    s =[]
-    Cnode = tree.value
-"""
+    treeNodes = []
+    cNode = tree
+    inOrder = []
+    loop = True
+    
+    while loop:
+        if cNode != None:
+           treeNodes.append(cNode)
+           cNode = cNode.left
+
+        elif len(treeNodes) > 0:
+           p = treeNodes.pop()
+           inOrder.append(p.value)
+           cNode = p.right
+
+        else:
+            loop= False
+
+    return inOrder 
+
 def tree_sort(sequence,tree):
     for item in sequence:
         tree_insert(tree, item)
@@ -51,7 +68,7 @@ def tree_sort(sequence,tree):
 
 if __name__ == '__main__':
     
-  t=tree_insert(None,10);
-  T1=[2,7,4,1,8]
-  t1=tree_sort(T1,t)
-  in_order(t1)
+  tree=tree_insert(None,10);
+  addToTree =[2,7,4,1,8]
+  sTree=tree_sort(addToTree,tree)
+  print(in_order2(sTree))
