@@ -41,8 +41,3 @@ if __name__ == '__main__':
     l.nodeEdge(5,4)
 
     print(l.list, ":::::::::", l.edges)
-
-
-"""
-#https://www.tutorialspoint.com/data_structures_algorithms/depth_first_traversal.htm
-"""
