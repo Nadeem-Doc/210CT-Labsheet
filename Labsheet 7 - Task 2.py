@@ -67,7 +67,3 @@ if __name__ == '__main__':
 
     print(l.list, ":::::::::", l.edges)
     print(l.travDFS())
-
-
-#https://www.tutorialspoint.com/data_structures_algorithms/depth_first_traversal.htm
-
