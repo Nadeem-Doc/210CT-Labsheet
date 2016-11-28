@@ -68,21 +68,6 @@ if __name__ == '__main__':
     print(l.list, ":::::::::", l.edges)
     print(l.travDFS())
 
-"""
-dict1 = {1: [6,2,4,6], 2: [4, 5, 6], 3 : [3, 4, 6]}
-
-r = dict1[2]
-for i in range(len(r)):
-    print(r[i])
-
-
-for p ,v in dict1.items():
-    #print("ee")
-    for i in range(len(v)):
-        if i == 1:
-            print(v[i])
-        else:
-            pass
 
 #https://www.tutorialspoint.com/data_structures_algorithms/depth_first_traversal.htm
-"""
+
