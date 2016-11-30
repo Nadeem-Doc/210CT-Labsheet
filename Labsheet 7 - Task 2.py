@@ -1,3 +1,5 @@
+from queue import *
+
 class Graph():
     def __init__(self):
         self.list = []
@@ -12,32 +14,37 @@ class Graph():
         else:
             self.edges[node] = [edge] #creates a new key
 
+
     def travDFS(self):
-        visited = []#
-        stack = [ self.list[0] ] #1
+        visited = []
+        stack = [ self.list[ 0 ] ] 
 
         while len(stack)!= 0:
-            node = stack.pop()  #1
+            node = stack.pop()  
             if node not in visited:
-                visited.append(node)
+                visited.append( node )
                 for edge in self.edges[ node ]:
-                   stack.append(edge) 
+                    if edge != 0:
+                        stack.append( edge ) 
 
         return visited
 
-
     def travBFS(self):
-        visited = []#
-        stack = [ self.list[0] ] #1
+        Q = Queue()   
+        visited = []
+        Q.put( self.list[ 0 ] )
 
-        while len(stack)!= 0:
-            node = stack.pop()  #1
+        while Q.empty() != True:
+            node = Q.get()
+            
             if node not in visited:
-                visited.append(node)
-                for edge in self.edges[ node ]:
-                   stack.append(edge) 
+                visited.append( node )
 
-        return visited  
+            for edge in self.edges[ node ]:
+                if edge not in Q.queue:   
+                    if edge != 0:
+                        Q.put( edge )
+        return visited
 
 if __name__ == '__main__':        
     l = Graph()
@@ -52,18 +59,12 @@ if __name__ == '__main__':
     l.nodeEdge(1,3)
     l.nodeEdge(1,4)
 
-    l.nodeEdge(2,1)
     l.nodeEdge(2,5)
     
-    l.nodeEdge(3,1)
     l.nodeEdge(3,5)
 
-    l.nodeEdge(4,1)
     l.nodeEdge(4,5)
 
-    l.nodeEdge(5,2)
-    l.nodeEdge(5,3)
-    l.nodeEdge(5,4)
+    l.nodeEdge(5,0)
 
-    print(l.list, ":::::::::", l.edges)
-    print(l.travDFS())
+    print("DFS: ", l.travDFS(),"BFS: ", l.travBFS())
