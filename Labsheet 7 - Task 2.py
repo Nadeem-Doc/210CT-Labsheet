@@ -17,33 +17,33 @@ class Graph():
 
     def travDFS(self):
         visited = []
-        stack = [ self.list[ 0 ] ] 
+        toVisit = [ self.list[ 0 ] ] 
 
-        while len(stack)!= 0:
-            node = stack.pop()  
-            if node not in visited:
-                visited.append( node )
-                for edge in self.edges[ node ]:
+        while len(toVisit)!= 0:
+            currentNode = toVisit.pop()  
+            if currentNode not in visited:
+                visited.append( currentNode )
+                for edge in self.edges[ currentNode ]:
                     if edge != 0:
-                        stack.append( edge ) 
+                        toVisit.append( edge ) 
 
         return visited
 
     def travBFS(self):
-        Q = Queue()   
+        toVisit = Queue()   
         visited = []
-        Q.put( self.list[ 0 ] )
+        toVisit.put( self.list[ 0 ] )
 
-        while Q.empty() != True:
-            node = Q.get()
+        while toVisit.empty() != True:
+            currentNode = toVisit.get()
             
-            if node not in visited:
-                visited.append( node )
+            if currentNode not in visited:
+                visited.append( currentNode )
 
-            for edge in self.edges[ node ]:
-                if edge not in Q.queue:   
+            for edge in self.edges[ currentNode ]:
+                if edge not in toVisit.queue:   
                     if edge != 0:
-                        Q.put( edge )
+                        toVisit.put( edge )
         return visited
 
 if __name__ == '__main__':        
