@@ -26,7 +26,6 @@ class Graph():
                 for edge in self.edges[ currentNode ]:
                     if edge != 0:
                         toVisit.append( edge ) 
-
         return visited
 
     def travBFS(self):
@@ -67,4 +66,11 @@ if __name__ == '__main__':
 
     l.nodeEdge(5,0)
 
-    print("DFS: ", l.travDFS(),"BFS: ", l.travBFS())
+    try:
+        file = open("Graph Traversal.txt", "w")
+        gTrav = "DFS: ", l.travDFS(),"BFS: ", l.travBFS()
+        file.write(str(gTrav))     
+    finally:
+        file.close()
+
+    print(str(gTrav))
